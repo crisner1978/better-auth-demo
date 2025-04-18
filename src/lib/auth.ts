@@ -167,5 +167,8 @@ export const auth = betterAuth({
       },
     }),
   ],
-  trustedOrigins: ['exp://'],
+  trustedOrigins: [
+    'https://better-auth-demo-git-main-chrisdrivlys-projects.vercel.app/',
+    'https://better-auth-demo-968d85zw2-chrisdrivlys-projects.vercel.app/',
+  ],
 })
