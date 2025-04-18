@@ -21,6 +21,16 @@ import { resend } from './email/resend'
 import { reactResetPasswordEmail } from './email/reset-password'
 import { ObjectId } from 'mongodb'
 
+const trustedOrigins = [
+  `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`,
+  `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`,
+  `https://${process.env.VERCEL_URL}`,
+  `https://${process.env.VERCEL_BRANCH_URL}`,
+  `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`,
+]
+console.log("🚀 ~ trustedOrigins:", trustedOrigins)
+
 // Import from our prisma.ts file instead of creating a new instance
 import { db as prisma } from './prisma'
 
@@ -167,17 +177,5 @@ export const auth = betterAuth({
       },
     }),
   ],
-  trustedOrigins: [
-    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
-    `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`,
-    `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`,
-    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`,
-    `https://${process.env.VERCEL_PROJECT_PREVIEW_URL}`,
-    'https://better-auth-demo-968d85zw2-chrisdrivlys-projects.vercel.app',
-    'https://better-auth-demo-chrisdrivlys-projects.vercel.app',
-    '',
-  ],
+  trustedOrigins,
 })
-// https://better-auth-demo-968d85zw2-chrisdrivlys-projects.vercel.app,
-// https://better-auth-demo-chrisdrivlys-projects.vercel.app
-// https://better-auth-demo-lemon.vercel.app
