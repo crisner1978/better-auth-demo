@@ -22,14 +22,12 @@ import { reactResetPasswordEmail } from './email/reset-password'
 import { ObjectId } from 'mongodb'
 
 const trustedOrigins = [
+  'exp://',
+  // Only use the NEXT_PUBLIC_ versions as they're available on both server and client
   `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
   `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`,
   `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`,
-  `https://${process.env.VERCEL_URL}`,
-  `https://${process.env.VERCEL_BRANCH_URL}`,
-  `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`,
 ]
-console.log("🚀 ~ trustedOrigins:", trustedOrigins)
 
 // Import from our prisma.ts file instead of creating a new instance
 import { db as prisma } from './prisma'

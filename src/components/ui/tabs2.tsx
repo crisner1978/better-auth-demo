@@ -122,7 +122,7 @@ export const FadeInDiv = ({
             },
           }}
           className={cn('h-full', isActive(tab) ? '' : 'hidden', className)}>
-          {tab.content}
+          {isActive(tab) ? tab.content : null}
         </motion.div>
       ))}
     </div>
