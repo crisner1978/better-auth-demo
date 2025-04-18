@@ -168,7 +168,16 @@ export const auth = betterAuth({
     }),
   ],
   trustedOrigins: [
+    `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+    `https://${process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL}`,
+    `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`,
+    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`,
+    `https://${process.env.VERCEL_PROJECT_PREVIEW_URL}`,
     'https://better-auth-demo-968d85zw2-chrisdrivlys-projects.vercel.app',
     'https://better-auth-demo-chrisdrivlys-projects.vercel.app',
+    '',
   ],
 })
+// https://better-auth-demo-968d85zw2-chrisdrivlys-projects.vercel.app,
+// https://better-auth-demo-chrisdrivlys-projects.vercel.app
+// https://better-auth-demo-lemon.vercel.app
